@@ -1,5 +1,5 @@
 
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import ApiKeyInput from './ApiKeyInput';
@@ -9,8 +9,8 @@ import ForecastCard from './ForecastCard';
 
 const WeatherDashboard = () => {
   const [apiKey, setApiKey] = useState('');
-  const [weatherData, setWeatherData] = useState(null);
-  const [forecastData, setForecastData] = useState(null);
+  const [weatherData, setWeatherData] = useState<any>(null);
+  const [forecastData, setForecastData] = useState<any>(null);
   const [loading, setLoading] = useState(false);
   const [unit, setUnit] = useState<'C' | 'F'>('C');
   const { toast } = useToast();
@@ -82,7 +82,7 @@ const WeatherDashboard = () => {
       console.error('Error fetching weather data:', error);
       toast({
         title: "Error",
-        description: error.message || "Failed to fetch weather data. Please check your API key and city name.",
+        description: (error as Error).message || "Failed to fetch weather data. Please check your API key and city name.",
         variant: "destructive",
       });
     } finally {

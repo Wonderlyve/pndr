@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -54,7 +54,7 @@ const ApiKeyInput = ({ onApiKeyChange }: ApiKeyInputProps) => {
             type="password"
             placeholder="Enter your API key"
             value={apiKey}
-            onChange={(e) => setApiKey(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setApiKey(e.target.value)}
             className="bg-white/20 border-white/30 text-white placeholder:text-white/60"
           />
           {isStored ? (
