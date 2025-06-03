@@ -26,7 +26,7 @@ const CitySearch = ({ onSearch, isLoading }: CitySearchProps) => {
           type="text"
           placeholder="Enter city name..."
           value={city}
-          onChange={(e) => setCity(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCity(e.target.value)}
           className="bg-white/20 border-white/30 text-white placeholder:text-white/60 text-lg"
           disabled={isLoading}
         />
